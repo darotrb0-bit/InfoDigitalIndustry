@@ -8,6 +8,10 @@
   --text-secondary: #5f6368;
   --border-color: #dee2e6;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  /* ពណ៌ទឹកក្រូចសម្រាប់ Hover */
+  --orange-hover-bg: #fff7ed;
+  --orange-hover-text: #f97316;
+  --orange-hover-border: #f97316;
 }
 
 /* ការកំណត់ពណ៌សម្រាប់ Dark Theme */
@@ -20,6 +24,15 @@ body.dark-theme {
   --text-secondary: #9ca3af;
   --border-color: #374151;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* ពណ៌ទឹកក្រូចសម្រាប់ Hover ពេល Dark Mode */
+  --orange-hover-bg: rgba(
+    249,
+    115,
+    22,
+    0.15
+  ); /* ពណ៌ផ្ទៃหลังពេល Hover (ទឹកក្រូចខ្ចី) */
+  --orange-hover-text: #f97316;
+  --orange-hover-border: #f97316;
 }
 
 * {
@@ -96,11 +109,15 @@ body {
   transition: all 0.3s ease;
 }
 .theme-toggle-button:hover {
-  opacity: 0.8;
+  background-color: var(--orange-hover-bg);
+  color: var(--orange-hover-text);
 }
 .theme-toggle-button svg {
   width: 20px;
   height: 20px;
+}
+.moon-icon {
+  display: none;
 }
 
 .content {
@@ -154,12 +171,12 @@ body {
 }
 
 .nav-button:hover {
-  background-color: var(--primary-light);
-  color: var(--primary-color);
+  background-color: var(--orange-hover-bg);
+  color: var(--orange-hover-text);
 }
 
 .nav-button:hover svg {
-  color: var(--primary-color);
+  color: var(--orange-hover-text);
 }
 
 .nav-button.active {
@@ -219,8 +236,8 @@ body {
 }
 
 .link-item:hover {
-  background-color: var(--primary-light);
-  border-color: var(--primary-color);
+  background-color: var(--orange-hover-bg);
+  border-color: var(--orange-hover-border);
   transform: scale(1.02);
 }
 
@@ -242,6 +259,24 @@ body {
   height: 20px;
 }
 
+/* រចនាប័ទ្មសម្រាប់ឈ្មោះ និង តួនាទី */
+.link-item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.link-item-name {
+  font-weight: 500;
+}
+
+.link-item-role {
+  font-size: 0.8em;
+  font-weight: 400;
+  color: var(--primary-color); /* ពណ៌ទឹកបិចសម្រាប់ Light Mode */
+  transition: color 0.3s ease;
+}
+
 /* រចនាប័ទ្ម Footer */
 .app-footer {
   text-align: center;
@@ -252,14 +287,42 @@ body {
 }
 
 .app-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--background-color);
+  padding: 8px 16px;
+  border-radius: 20px;
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 0.9em;
-  transition: color 0.2s ease;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.app-footer a svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
 }
 
 .app-footer a:hover {
-  color: var(--primary-color);
+  color: var(--orange-hover-text);
+  background-color: var(--orange-hover-bg);
+  border-color: var(--orange-hover-border);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.app-footer a:hover svg {
+  transform: rotate(-15deg);
+}
+
+/* កំណត់ពណ៌សម្រាប់ Icon ពេល Dark Mode */
+body.dark-theme .link-item .icon-wrapper {
+  background-color: #4a2c0f; /* Dark orange background */
+  color: #f97316; /* Orange icon color */
 }
 
 /* កំណត់ពណ៌សម្រាប់ Header ពេល Dark Mode */
@@ -270,4 +333,16 @@ body.dark-theme .main-header h1 {
 body.dark-theme .theme-toggle-button {
   background-color: #4b5563; /* ផ្ទៃหลังប៊ូតុងពណ៌ប្រផេះ */
   color: var(--text-primary); /* ប្តូរពណ៌ Icon ទៅជាស */
+}
+
+body.dark-theme .sun-icon {
+  display: none;
+}
+body.dark-theme .moon-icon {
+  display: block;
+}
+
+/* កំណត់ពណ៌តួនាទីពេល Dark Mode */
+body.dark-theme .link-item-role {
+  color: #4ade80; /* ពណ៌បៃតងសម្រាប់ Dark Mode */
 }
