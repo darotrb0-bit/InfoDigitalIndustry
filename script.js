@@ -170,7 +170,5 @@ document.addEventListener("DOMContentLoaded", function () {
     initializeTheme();
   }
 
-
-  
   initializeApp();
 });
