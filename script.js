@@ -162,6 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
       applyTheme(isNight ? "dark" : "light");
     }
   };
+
   themeToggle.addEventListener("click", toggleTheme);
 
   // ចាប់ផ្តើមដំណើរការទាំងអស់
@@ -171,6 +172,5 @@ document.addEventListener("DOMContentLoaded", function () {
     initializeTheme();
   }
 
-  
   initializeApp();
 });
