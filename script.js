@@ -162,7 +162,6 @@ document.addEventListener("DOMContentLoaded", function () {
       applyTheme(isNight ? "dark" : "light");
     }
   };
-
   themeToggle.addEventListener("click", toggleTheme);
 
   // ចាប់ផ្តើមដំណើរការទាំងអស់
