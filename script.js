@@ -163,7 +163,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
   themeToggle.addEventListener("click", toggleTheme);
-
   // ចាប់ផ្តើមដំណើរការទាំងអស់
   function initializeApp() {
     renderNavButtons();
